@@ -66,7 +66,7 @@ body {
   .hero-img {
     position: relative;
     flex: 1;
-    flex-basis: 25rem;
+    flex-basis: 35rem;
   }
 
   .images {
@@ -89,8 +89,21 @@ body {
 
   .hero-desc h2 {
     font-family: "Forum", cursive;
+    font-size: 3rem;
   }
 
-  .hero-desc h2 {
+  .hero-desc p {
+    padding: 2rem 0rem;
+    font-size: 1.5rem;
+  }
+  .explore {
+    padding: 1rem 2rem;
+    background: none;
+    color: $text-color;
+    border: 1px solid $text-color;
+    font-size: 1rem;
+    text-decoration: none;
+    align-self: flex-start;
+    cursor: pointer;
   }
 }
