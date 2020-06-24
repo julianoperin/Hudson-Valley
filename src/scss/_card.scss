@@ -11,6 +11,7 @@ body {
   background: $background-color;
   font-family: "Forum", cursive;
   color: $text-color;
+  overflow-x: hidden;
 }
 // NAV HEADER
 .nav-header {
@@ -68,6 +69,7 @@ body {
     flex: 1;
     flex-basis: 35rem;
     max-width: 600px;
+    overflow: hidden;
   }
 
   .images {
@@ -170,4 +172,8 @@ body {
   border: 2px black solid;
   border-radius: 50%;
   position: absolute;
+}
+
+.test {
+  color: blue;
 }
