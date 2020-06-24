@@ -21,6 +21,7 @@ function animateSlides() {
     slideTl.fromTo(revealImg, { x: "0%" }, { x: "100%" });
     slideTl.fromTo(img, { scale: 2 }, { scale: 1 }, "-=1");
     slideTl.fromTo(revealText, { x: "0%" }, { x: "100%" }, "-=0.75");
+    slideTl.fromTo(nav, { y: "-100%" }, { y: "0%" }, "-=0.5");
     //Create Scene
     slideScene = new ScrollMagic.Scene({
       triggerElement: slide,
@@ -34,6 +35,35 @@ function animateSlides() {
         name: "slide",
       })
       .addTo(controller);
+    // New Animation
   });
 }
+
+/******  Cursor Animation ******/
+let mouse = document.querySelector(".cursor");
+
+// Function to move cursor
+function cursor(e) {
+  mouse.style.top = e.pageY + "px";
+  mouse.style.left = e.pageX + "px";
+}
+
+function activeCursor(e) {
+  // Logo
+  const item = e.target;
+  if (item.id === "logo") {
+    mouse.classList.add("logo-active");
+  } else {
+    mouse.classList.remove("logo-active");
+  }
+  // burger
+  if (item.classList.contains("burger")) {
+    mouse.classList.add("burger-active");
+  } else {
+    mouse.classList.remove("burger-active");
+  }
+}
+
+window.addEventListener("mousemove", cursor);
+window.addEventListener("mouseover", activeCursor);
 animateSlides();
