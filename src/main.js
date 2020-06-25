@@ -25,7 +25,7 @@ function animateSlides() {
     //Create Scene
     slideScene = new ScrollMagic.Scene({
       triggerElement: slide,
-      triggerHook: 0.4,
+      triggerHook: 0.5,
       reverse: false,
     })
       .setTween(slideTl)
@@ -41,7 +41,7 @@ function animateSlides() {
 
 /******  Cursor Animation ******/
 let mouse = document.querySelector(".cursor");
-
+let mouseTxt = mouse.querySelector("span");
 // Function to move cursor
 function cursor(e) {
   mouse.style.top = e.pageY + "px";
@@ -49,12 +49,18 @@ function cursor(e) {
 }
 
 function activeCursor(e) {
-  // Logo
   const item = e.target;
+  // Logo
   if (item.id === "logo") {
     mouse.classList.add("logo-active");
   } else {
     mouse.classList.remove("logo-active");
+  }
+  // img
+  if (item.classList.contains("images")) {
+    mouse.classList.add("blur");
+  } else {
+    mouse.classList.remove("blur");
   }
   // burger
   if (item.classList.contains("burger")) {
@@ -62,8 +68,24 @@ function activeCursor(e) {
   } else {
     mouse.classList.remove("burger-active");
   }
+  // explore btn
+  if (item.classList.contains("explore")) {
+    mouse.classList.add("explore-active");
+    mouseTxt.innerText = "Explore!";
+    gsap.to(".title-swipe", 1, { y: "0%" });
+
+    gsap.fromTo(".explore", 0.1, { opacity: 1 }, { opacity: 0 });
+  } else {
+    mouse.classList.remove("explore-active");
+    mouseTxt.innerText = "";
+    gsap.fromTo(".explore", 0.1, { opacity: 0 }, { opacity: 1 });
+    gsap.to(".title-swipe", 1, { y: "100%" });
+  }
 }
+
+// Event listeners
 
 window.addEventListener("mousemove", cursor);
 window.addEventListener("mouseover", activeCursor);
+
 animateSlides();
