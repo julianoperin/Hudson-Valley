@@ -93,27 +93,3 @@ body {
   left: 0;
   top: -15%;
 }
-
-// Text animation for title
-.title {
-  position: relative;
-  overflow: hidden;
-}
-.title-swipe {
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  position: absolute;
-  mix-blend-mode: lighten;
-  transform: translateY(100%);
-}
-.t-swipe1 {
-  background: rgb(86, 124, 228);
-}
-.t-swipe2 {
-  background: rgb(167, 110, 231);
-}
-.t-swipe3 {
-  background: rgb(241, 6, 6);
-}

@@ -65,7 +65,6 @@ nav {
     -webkit-clip-path: circle(100px at 90% -20%);
     transition: all 0.5s ease-in;
     pointer-events: none;
-    z-index: 200;
   }
 
   .burger {
@@ -76,7 +75,6 @@ nav {
     clip-path: circle(100px at 90% -10%);
     -webkit-clip-path: circle(1200px at 90% -10%);
     pointer-events: all;
-    z-index: 500 !important;
   }
 
   /* nav links animation */

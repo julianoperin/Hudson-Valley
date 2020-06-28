@@ -28,7 +28,7 @@ function animateSlides() {
     //Create Scene to activate when scrolled
     slideScene = new ScrollMagic.Scene({
       triggerElement: slide,
-      triggerHook: 0.5,
+      triggerHook: 0.4,
       reverse: false,
     })
       .setTween(slideTl)
@@ -42,12 +42,12 @@ function animateSlides() {
   });
 }
 
-/******  Cursor Animation ******/
+//! ********  Cursor Animation ******/
 const mouse = document.querySelector(".cursor");
 const mouseTxt = mouse.querySelector("span");
 const burger = document.querySelector(".burger");
 
-// Function to move cursor
+//! Function to move cursor
 function cursor(e) {
   mouse.style.top = e.pageY + "px";
   mouse.style.left = e.pageX + "px";
@@ -55,6 +55,8 @@ function cursor(e) {
 
 function activeCursor(e) {
   const item = e.target;
+  console.log(item);
+
   // Logo
   if (item.id === "logo") {
     mouse.classList.add("logo-active");
@@ -68,44 +70,27 @@ function activeCursor(e) {
     mouse.classList.remove("blur");
   }
 
-  // // burger
-  // if (item.classList.contains("burger")) {
-  //   mouse.classList.add("burger-active");
-  // } else {
-  //   mouse.classList.remove("burger-active");
-  // }
-  // // explore btn
-  // if (item.classList.contains("explore")) {
-  //   mouse.classList.add("explore-active");
-  //   mouseTxt.innerText = "Explore!";
-  //   gsap.to(".title-swipe", 1, { y: "0%" });
+  // burger
+  if (item.classList.contains("burger")) {
+    mouse.classList.add("burger-active");
+  } else {
+    mouse.classList.remove("burger-active");
+  }
+  // explore btn
+  if (item.classList.contains("explore")) {
+    mouse.classList.add("explore-active");
+    mouseTxt.innerText = "Explore!";
+    // gsap.to(".title-swipe", 1, { y: "0%" });
+    // gsap.fromTo(".fill", 0.1, { opacity: 1 }, { opacity: 0 });
 
-  //   gsap.fromTo(".explore", 0.1, { opacity: 1 }, { opacity: 0 });
-  // } else {
-  //   mouse.classList.remove("explore-active");
-  //   mouseTxt.innerText = "";
-  //   gsap.fromTo(".explore", 0.1, { opacity: 0 }, { opacity: 1 });
-  //   gsap.to(".title-swipe", 1, { y: "100%" });
-  // }
+    gsap.fromTo(".explore", 0.1, { opacity: 1 }, { opacity: 0 });
+  } else {
+    mouse.classList.remove("explore-active");
+    mouseTxt.innerText = "";
+    gsap.fromTo(".explore", 0.1, { opacity: 0 }, { opacity: 1 });
+    // gsap.to(".title-swipe", 1, { y: "100%" });
+  }
 }
-
-// function navToggle(e) {
-//   if (!e.target.classList.contains("active")) {
-//     e.target.classList.add("active");
-//     gsap.to(".line1", 0.5, { rotate: "45", y: 5, background: "white" });
-//     gsap.to(".line2", 0.5, { rotate: "-45", y: -5, background: "white" });
-//     gsap.to("#logo", 1, { color: "white" });
-//     gsap.to(".nav-bar", 1, { clipPath: "circle(2500px at 100% -10%)" });
-//     document.body.classList.add("hide");
-//   } else {
-//     e.target.classList.remove("active");
-//     gsap.to(".line1", 0.5, { rotate: "0", y: 0, background: "black" });
-//     gsap.to(".line2", 0.5, { rotate: "0", y: 0, background: "black" });
-//     gsap.to("#logo", 1, { color: "black" });
-//     gsap.to(".nav-bar", 1, { clipPath: "circle(50px at 100% -10%)" });
-//     document.body.classList.remove("hide");
-//   }
-// }
 
 // Event listeners
 window.addEventListener("mousemove", cursor);
