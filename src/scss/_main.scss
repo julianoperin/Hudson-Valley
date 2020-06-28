@@ -12,7 +12,14 @@ body {
   font-family: "Forum", cursive;
   color: $text-color;
   overflow-x: hidden;
+  position: relative;
+  background: #fafafa;
   // cursor: none;
+}
+
+main {
+  position: absolute;
+  z-index: -1;
 }
 
 // SLIDE AND DESCRIPTION
@@ -24,7 +31,7 @@ body {
   justify-content: space-between;
   align-items: center;
   color: $text-color;
-  background: $background-color;
+  background: #fafafa;
 
   .hero-desc {
     display: flex;
@@ -89,7 +96,7 @@ body {
   position: absolute;
   width: 100%;
   height: 150%;
-  background: $background-color;
+  background: #fafafa;
   left: 0;
   top: -15%;
 }

@@ -46,6 +46,17 @@ function animateSlides() {
 const mouse = document.querySelector(".cursor");
 const mouseTxt = mouse.querySelector("span");
 const burger = document.querySelector(".burger");
+const links = document.querySelectorAll(".nav-links li");
+
+//! Animation for the nav links
+links.forEach((link) => {
+  link.addEventListener("mouseover", () => {
+    mouse.classList.add("link-grow");
+  });
+  link.addEventListener("mouseleave", () => {
+    mouse.classList.remove("link-grow");
+  });
+});
 
 //! Function to move cursor
 function cursor(e) {
@@ -55,7 +66,6 @@ function cursor(e) {
 
 function activeCursor(e) {
   const item = e.target;
-  console.log(item);
 
   // Logo
   if (item.id === "logo") {
@@ -71,7 +81,12 @@ function activeCursor(e) {
   }
 
   // burger
-  if (item.classList.contains("burger")) {
+  if (
+    item.classList.contains("burger") ||
+    item.classList.contains("line1") ||
+    item.classList.contains("line2") ||
+    item.classList.contains("line3")
+  ) {
     mouse.classList.add("burger-active");
   } else {
     mouse.classList.remove("burger-active");

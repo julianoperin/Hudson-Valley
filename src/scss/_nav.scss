@@ -1,8 +1,13 @@
+header {
+}
+
 nav {
   display: flex;
   align-items: center;
   height: 8vh;
-  background: pink;
+  // background: #fafafa;
+  position: relative;
+  z-index: 5;
 }
 
 .logo {
@@ -20,10 +25,14 @@ nav {
   align-items: items;
   width: 40%;
   flex: 1;
+  position: relative;
+  z-index: 5;
 }
 
 .nav-links li {
+  padding: 1rem;
   list-style: none;
+  z-index: 5;
 }
 
 .nav-links li a {
@@ -55,7 +64,7 @@ nav {
     right: 0px;
     height: 92vh;
     top: 8vh;
-    background-color: pink;
+    background-color: #fafafa;
     color: black;
     display: flex;
     flex-direction: column;
@@ -109,4 +118,8 @@ nav {
 //! No scroll when mobile view
 .over {
   overflow: hidden;
+}
+
+.hovered-link {
+  color: white;
 }
