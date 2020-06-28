@@ -2,11 +2,11 @@ nav {
   display: flex;
   align-items: center;
   height: 8vh;
-  background: black;
+  background: pink;
 }
 
 .logo {
-  color: white;
+  color: black;
   text-transform: uppercase;
   font-size: 26px;
   letter-spacing: 5px;
@@ -27,7 +27,7 @@ nav {
 }
 
 .nav-links li a {
-  color: white;
+  color: black;
   text-decoration: none;
   letter-spacing: 3px;
   font-weight: bold;
@@ -43,28 +43,20 @@ nav {
 .burger div {
   width: 30px;
   height: 3px;
-  background-color: white;
+  background-color: black;
   margin: 5px;
   transition: all 0.3s ease;
 }
 
-.reveal-text {
-  display: none;
-}
-
 // ! MEDIA QUERY 768px
 @media screen and (max-width: 768px) {
-  .reveal-text {
-    display: none;
-  }
-
   .nav-links {
     position: absolute;
     right: 0px;
     height: 92vh;
     top: 8vh;
-    background-color: black;
-    color: white;
+    background-color: pink;
+    color: black;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -73,7 +65,7 @@ nav {
     -webkit-clip-path: circle(100px at 90% -20%);
     transition: all 0.5s ease-in;
     pointer-events: none;
-    z-index: 100;
+    z-index: 200;
   }
 
   .burger {
@@ -84,7 +76,7 @@ nav {
     clip-path: circle(100px at 90% -10%);
     -webkit-clip-path: circle(1200px at 90% -10%);
     pointer-events: all;
-    z-index: 100;
+    z-index: 500 !important;
   }
 
   /* nav links animation */
@@ -93,6 +85,7 @@ nav {
   }
 }
 
+//! Links Animation
 @keyframes navLinkFade {
   from {
     opacity: 0;
@@ -104,6 +97,7 @@ nav {
   }
 }
 
+//! Toggle burger animation
 .toggle .line1 {
   transform: rotate(-45deg) translate(-5px, 6px);
 }
@@ -114,6 +108,7 @@ nav {
   transform: rotate(45deg) translate(-5px, -6px);
 }
 
+//! No scroll when mobile view
 .over {
   overflow: hidden;
 }

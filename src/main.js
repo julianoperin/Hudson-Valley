@@ -1,4 +1,5 @@
 import "./scss/app.scss";
+import navSlide from "./nav";
 
 let controller;
 let slideScene;
@@ -8,21 +9,23 @@ function animateSlides() {
   controller = new ScrollMagic.Controller();
   //Select some things
   const sliders = document.querySelectorAll(".slide");
-  const nav = document.querySelector(".nav-header");
-  //Loop over each slide
+  const nav = document.querySelector("nav");
+  //Loop over the slides
   sliders.forEach((slide, index, slides) => {
     const revealImg = slide.querySelector(".reveal-img");
     const img = slide.querySelector("img");
-    const revealText = slide.querySelector(".reveal-text");
-    //GSAP
+    const desc = slide.querySelector(".hero-desc");
+
+    //GSAP - Create a timeline
     const slideTl = gsap.timeline({
       defaults: { duration: 1, ease: "power2.inOut" },
     });
     slideTl.fromTo(revealImg, { x: "0%" }, { x: "100%" });
     slideTl.fromTo(img, { scale: 2 }, { scale: 1 }, "-=1");
-    slideTl.fromTo(revealText, { x: "0%" }, { x: "100%" }, "-=0.75");
+    slideTl.fromTo(desc, { x: "200%" }, { x: "0%" }, "-=0.75");
     slideTl.fromTo(nav, { y: "-100%" }, { y: "0%" }, "-=0.5");
-    //Create Scene
+
+    //Create Scene to activate when scrolled
     slideScene = new ScrollMagic.Scene({
       triggerElement: slide,
       triggerHook: 0.5,
@@ -105,38 +108,8 @@ function activeCursor(e) {
 // }
 
 // Event listeners
-// window.addEventListener("click", navToggle);
 window.addEventListener("mousemove", cursor);
 window.addEventListener("mouseover", activeCursor);
 
 animateSlides();
-
-//! ******************** TOGGLE NAV ******************/
-const navSlide = () => {
-  const burger = document.querySelector(".burger");
-  const nav = document.querySelector(".nav-links");
-  const links = document.querySelectorAll(".nav-links li");
-  const corp = document.querySelector("body");
-
-  //! Toggle Nav
-  burger.addEventListener("click", () => {
-    nav.classList.toggle("nav-active");
-
-    //! Animate Links
-    links.forEach((link, index) => {
-      if (link.style.animation) {
-        link.style.animation = "";
-      } else {
-        link.style.animation = `navLinkFade 0.5s ease forwards ${
-          index / 2 + 0.3
-        }s`;
-      }
-    });
-    //! Burger Animation
-    burger.classList.toggle("toggle");
-
-    //! Body overflow
-    corp.classList.toggle("over");
-  });
-};
 navSlide();
