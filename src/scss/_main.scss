@@ -1,0 +1,124 @@
+$background-color: #fff;
+$text-color: #000;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: $background-color;
+  font-family: "Forum", cursive;
+  color: $text-color;
+  overflow-x: hidden;
+  // cursor: none;
+}
+
+// SLIDE AND DESCRIPTION
+
+.slide {
+  min-height: 90vh;
+  margin: 0 auto 0 auto;
+  width: 84%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: $text-color;
+  background: $background-color;
+
+  .hero-desc {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    flex-basis: 25rem;
+    padding-left: 5rem;
+    position: relative;
+  }
+
+  .hero-img {
+    position: relative;
+    flex: 1;
+    flex-basis: 35rem;
+    overflow: hidden;
+  }
+
+  .hero-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .fashion-span {
+    color: rgb(86, 124, 228);
+  }
+
+  .mountain-span {
+    color: rgb(86, 124, 228);
+  }
+
+  .hike-span {
+    color: rgb(86, 124, 228);
+  }
+
+  .hero-desc h2 {
+    font-family: "Forum", cursive;
+    font-size: 3rem;
+  }
+
+  .hero-desc p {
+    padding: 2rem 0rem;
+    font-size: 1.5rem;
+  }
+  .explore {
+    padding: 1rem 2rem;
+    background: none;
+    color: $text-color;
+    border: 1px solid $text-color;
+    font-size: 1rem;
+    text-decoration: none;
+    align-self: flex-start;
+    cursor: pointer;
+    transition: all 2s ease;
+  }
+}
+
+.reveal-img,
+.reveal-text {
+  position: absolute;
+  width: 100%;
+  height: 150%;
+  background: $background-color;
+  left: 0;
+  top: -15%;
+}
+
+// Text animation for title
+.title {
+  position: relative;
+  overflow: hidden;
+}
+.title-swipe {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  position: absolute;
+  mix-blend-mode: lighten;
+  transform: translateY(100%);
+}
+.t-swipe1 {
+  background: rgb(86, 124, 228);
+}
+.t-swipe2 {
+  background: rgb(167, 110, 231);
+}
+.t-swipe3 {
+  background: rgb(241, 6, 6);
+}
+
+body.hide {
+  overflow: hidden;
+}
